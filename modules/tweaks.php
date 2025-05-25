@@ -99,6 +99,15 @@ add_action( 'init', function() {
     remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
 } );
 
+add_action( 'wp_enqueue_scripts', function() {
+    wp_dequeue_style( 'global-styles' );
+    wp_dequeue_style( 'wp-webfonts' );
+    wp_dequeue_style( 'wp-block-library' );
+    wp_dequeue_style( 'wp-block-library' );
+    wp_dequeue_style( 'wp-block-library-theme' );
+    wp_dequeue_style( 'block-style-variation-styles' );
+    wp_dequeue_style( 'classic-theme-styles' );
+}, 20 );
 
 /**
  * Remove wordpress meta for security reasons

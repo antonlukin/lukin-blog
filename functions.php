@@ -9,17 +9,18 @@ if (!defined('WPINC')) {
 
 require_once get_stylesheet_directory() . '/modules/video.php';
 require_once get_stylesheet_directory() . '/modules/tweaks.php';
+require_once get_stylesheet_directory() . '/modules/live.php';
 
 /**
  * Add custom styles
  */
 add_action ('wp_enqueue_scripts', function() {
-    wp_enqueue_style( 'instapress-customs', content_url('/customs/assets/styles.css'), array('instapress-styles'), '1.1' );
-} );
+    wp_enqueue_style( 'lukin-blog', get_stylesheet_directory_uri() . '/assets/styles.css', '1.1' );
+}, 20 );
 
 /**
  * Add custom scripts
  */
 add_action ('wp_enqueue_scripts', function() {
-    wp_enqueue_script( 'instapress-customs', content_url('/customs/assets/scripts.js'), array(), '1.1', true );
-} );
+    wp_enqueue_script( 'lukin-blog', get_stylesheet_directory_uri() . '/assets/scripts.js', array(), '1.1', true );
+}, 20 );
