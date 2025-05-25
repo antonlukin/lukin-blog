@@ -68,6 +68,15 @@ if ( ! function_exists( 'lukin_live_areas' ) ) {
     function lukin_live_areas() {
         global $wpdb;
 
+        $colors = array(
+            'var(--color-area-1)',
+            'var(--color-area-2)',
+            'var(--color-area-3)',
+            'var(--color-area-4)',
+        );
+
+        $thresholds = array( 10, 30, 90 );
+
         $rows = $wpdb->get_results(
             "SELECT `country`, `from`, `to`
             FROM {$wpdb->prefix}live
@@ -92,16 +101,11 @@ if ( ! function_exists( 'lukin_live_areas' ) ) {
             $results[ $country ] += $days;
         }
 
+        $results['UA'] = 15;
+        $results['ES'] = 7;
+        $results['BY'] = 2;
+
         $styles = array();
-
-        $colors = array(
-            'var(--color-area-1)',
-            'var(--color-area-2)',
-            'var(--color-area-3)',
-            'var(--color-area-4)',
-        );
-
-        $thresholds = array( 10, 30, 90 );
 
         foreach ( $results as $code => $days ) {
             $index = count( $thresholds );

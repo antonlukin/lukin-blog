@@ -206,9 +206,9 @@ get_header(); ?>
                         esc_url( get_stylesheet_directory_uri() . '/images/flags/' . strtolower( $entry->country ) ) . '.svg',
                         esc_html( $entry->country ),
                     );
+
                     printf(
-                        '<a href="https://www.google.com/maps/@%s,12z" target="_blank" class="place-title">%s</a>',
-                        esc_html( $entry->coords ),
+                        '<strong class="place-title">%s</strong>',
                         esc_html( $entry->place )
                     );
                     ?>
