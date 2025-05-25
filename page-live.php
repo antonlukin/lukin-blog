@@ -207,7 +207,8 @@ get_header(); ?>
                         esc_html( $entry->country ),
                     );
                     printf(
-                        '<strong class="place-title">%s</strong>',
+                        '<a href="https://www.google.com/maps/@%s,12z" target="_blank" class="place-title">%s</a>',
+                        esc_html( $entry->coords ),
                         esc_html( $entry->place )
                     );
                     ?>
@@ -228,6 +229,14 @@ get_header(); ?>
                     endif;
                     ?>
                 </div>
+
+                <?php
+                 printf(
+                    '<a class="place-map" href="https://www.google.com/maps/@%s,12z" target="_blank">%s</a>',
+                    esc_html( $entry->coords ),
+                    esc_html__( 'Show on map', 'lukin-blog' )
+                );
+                ?>
             </div>
         <?php endforeach; ?>
     </div>
