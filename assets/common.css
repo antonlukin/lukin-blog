@@ -6,8 +6,13 @@
   --color-area-4: #e0923c;
 }
 
-.card.link-card .card-permalink {
-  display: none;
+.entry {
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+}
+
+.menu .menu-item:first-child {
+  padding-left: 0;
 }
 
 .card.link-card:hover .card-thumbnail-image {
@@ -132,6 +137,15 @@
   border-bottom: solid 0.0625rem #373e48;
 }
 
+
+@media screen and (max-width: 767px) {
+  .live {
+    margin: 1.25rem 0;
+    padding-bottom: 1.25rem;
+    font-size: 0.875rem;
+  }
+}
+
 .live strong {
   display: block;
   font-size: 2.875rem;
@@ -139,6 +153,12 @@
   font-weight: 300;
   line-height: 1.375;
   color: #fff;
+}
+
+@media screen and (max-width: 767px) {
+  .live strong {
+    font-size: 2rem;
+  }
 }
 
 .place {
@@ -158,6 +178,12 @@
   line-height: 1.125;
 }
 
+@media screen and (max-width: 767px) {
+  .place-caption {
+    font-size: 1.125rem;
+  }
+}
+
 .place-flag {
   display: block;
   flex: 0 0 auto;
@@ -165,7 +191,7 @@
   width: 1.25rem;
   height: 1.25rem;
 
-  margin-right: 0.75rem;
+  margin-right: 0.5rem;
 }
 
 .place-title {
