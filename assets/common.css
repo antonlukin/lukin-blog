@@ -114,6 +114,39 @@
   fill: var(--color-area-0);
 }
 
+.map {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 32rem;
+  margin: 2.5rem auto;
+  transition: max-width 0.3s ease;
+}
+
+.map .area {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+
+.map.map-expanded {
+  max-width: 64rem;
+}
+
+@media screen and (min-width: 768px) {
+  .map {
+    cursor: zoom-in;
+  }
+
+  .map .area {
+    cursor: inherit;
+  }
+
+  .map.map-expanded {
+    cursor: zoom-out;
+  }
+}
+
 .list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
