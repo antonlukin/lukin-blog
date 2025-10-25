@@ -44,4 +44,37 @@
       thumbnail.appendChild(iframe);
     })
   });
+
+  /**
+   * Toggle map size
+   */
+  var map = document.getElementById('map');
+
+  if (map) {
+    var area = map.querySelector('.area');
+
+    if (!area) {
+      return;
+    }
+
+    var desktopQuery = window.matchMedia('(min-width: 768px)');
+
+    var collapseIfMobile = function () {
+      if (!desktopQuery.matches) {
+        map.classList.remove('map-expanded');
+      }
+    };
+
+    collapseIfMobile();
+
+    area.addEventListener('click', function () {
+      if (!desktopQuery.matches) {
+        return;
+      }
+
+      map.classList.toggle('map-expanded');
+    });
+
+    desktopQuery.addEventListener('change', collapseIfMobile);
+  }
 })();
