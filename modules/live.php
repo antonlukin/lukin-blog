@@ -22,6 +22,23 @@ if ( ! function_exists( 'lukin_live_results' ) ) {
     }
 }
 
+if ( ! function_exists( 'lukin_live_total' ) ) {
+    /**
+     * Get total countries count
+     */
+    function lukin_live_total() {
+        global $wpdb;
+
+        $results = $wpdb->get_row( "SELECT COUNT(DISTINCT(`country`)) as `amount` FROM wp_live" );
+
+        if ( empty( $results->amount ) ) {
+            return 0;
+        }
+
+        return absint( $results->amount ) + 3;  
+    }
+}
+
 if ( ! function_exists( 'lukin_live_current' ) ) {
     /**
      * Display block with current info
@@ -35,7 +52,7 @@ if ( ! function_exists( 'lukin_live_current' ) ) {
             '%s <strong>%s</strong> %s %s',
             esc_html__( 'I have been in', 'lukin-blog' ),
             esc_html( $current->place ),
-            esc_html__( 'for the last', 'lukin-blog' ),
+            esc_html__( 'for the past', 'lukin-blog' ),
             lukin_live_diff( $current->from ),
         );
     }

@@ -192,7 +192,14 @@ get_header(); ?>
 
     <?php if ( ! empty( $current ) ) : ?>
         <div class="live">
-            <?php lukin_live_current( $current ); ?>
+            <?php 
+                lukin_live_current( $current ); 
+
+                printf(
+                    __( ' and have visited a total of <em>%d countries</em>', 'lukin-blog' ), 
+                    lukin_live_total()
+                );
+            ?>
         </div>
     <?php endif; ?>
 

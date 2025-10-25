@@ -137,7 +137,7 @@
   .live {
     margin: 1.25rem 0;
     padding-bottom: 1.25rem;
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
   }
 }
 
@@ -148,6 +148,10 @@
   font-weight: 300;
   line-height: 1.375;
   color: #fff;
+}
+
+.live em {
+  color: #eee;
 }
 
 @media screen and (max-width: 767px) {
