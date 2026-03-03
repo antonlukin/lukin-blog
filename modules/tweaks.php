@@ -202,3 +202,19 @@ add_filter( 'max_srcset_image_width', function( $max_width ) {
 add_action( 'init', function() {
     unregister_taxonomy_for_object_type( 'category', 'post' );
 } );
+
+/**
+ * Remove empty summary fields in post cards.
+ */
+add_filter( 'instapress_summary_fields', function( $fields ) {
+    foreach ( $fields as $label => $value ) {
+        // Keep numeric values like "0", but remove empty strings and empty arrays in JSON.
+        $normalized = trim( wp_strip_all_tags( html_entity_decode( (string) $value, ENT_QUOTES, 'UTF-8' ) ) );
+
+        if ( '' === $normalized || '[]' === $normalized ) {
+            unset( $fields[ $label ] );
+        }
+    }
+
+    return $fields;
+} );
