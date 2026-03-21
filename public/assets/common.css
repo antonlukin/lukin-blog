@@ -19,6 +19,48 @@
   filter: none;
 }
 
+.card.link-card .card-permalink {
+  display: block;
+
+  position: absolute;
+  top: auto;
+  left: auto;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 2;
+
+  width: 1rem;
+  height: 1rem;
+
+  opacity: 0;
+
+  background-image: url('../images/external.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  transition: opacity 0.25s;
+}
+
+.type-post .card.link-card:hover .card-permalink {
+  opacity: 0.375;
+}
+
+.type-post .card.link-card .card-permalink:hover {
+  opacity: 0.75;
+}
+
+@media screen and (max-width: 767px) {
+  .type-post .card.link-card .card-permalink {
+    opacity: 0.375;
+  }
+}
+
+.card.link-card:hover .card-thumbnail-image {
+  filter: none;
+}
+
+
 .post.type-video .card.link-card .card-thumbnail {
   display: block;
   padding-top: 56.25%;
